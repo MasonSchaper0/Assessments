@@ -242,3 +242,25 @@ async function postData(url = '', data = {}) {
  });
  return response.json(); // parses JSON response into native JavaScript objects
 }
+
+JS Object Literal - An object literal is a list of name:value pairs inside curly braces {}.
+
+EXAMPLE:
+const person1 = {
+  name: 'Mason',
+  age: 18,
+  birthYear: 2006,
+  location: 'Burbank',
+  job: 'Student Programmer',
+  salary: '$100k'
+};
+
+Ternary Operator: operator that takes three operands: a condition followed by a question mark, then an expression to execute if the condition is true followed by a colon, and finally the expression to execute if the condition is false.
+
+EXAMPLE:
+function getFee(isMember) {
+  return isMember ? '$2.00' : '$10.00';
+}
+
+// isMember is the condition, if isMember is considered true, then the value will be '$2.00'. Otherwise, the value will be '$10.00'.
+
