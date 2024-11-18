@@ -1,3 +1,90 @@
+Variables, Data Types, etc.
+
+Primitive Values:
+
+Boolean = true/false
+String = ‘ ‘, “ “, ` ` (any sentences/word or letter)
+integer = 1 (any number)
+
+
+const - variable that doesn’t change its value
+
+let - variable that can change its value
+
+
+Object (stores information about a specific element)
+
+const person = {
+name: ‘John’;
+age: 20;
+job: student;
+}
+
+
+Reference Values:
+
+let newName = name;
+newName = ‘John’;
+
+let newPerson = person;
+newPerson.name = ‘Josh’;
+
+
+Concatenation:
+
+Const name = “John”;
+Const x = “Hello, I’m “ + name + “. Nice to meet you.”
+
+Template literals: 
+
+Const x = “Hello, I’m ${name}. Nice to meet you.”
+
+
+Strings:
+
+const x = “hi sir”;
+console.log(x);
+
+x = s.toUpperCase();
+
+x = x.toLowerCase();
+
+x = x.charAt(0);
+
+x = x.indexOf(‘d’);
+
+x = x.substring(0, 2); // will only print ‘hi’
+
+x = x.slice(-4); // will only print ‘h’
+
+x = x.trim();
+
+x = x.replace(‘sir’, ‘John’); // replaces sir with John
+
+x = x.includes(‘hello’); // returns false because this isn’t included in the string.
+
+x = x.split(‘’); // will split each each character into an array
+
+
+Math
+
+Math.sqrt(9); // finds the square root of 9 (3)
+
+Math.abs(-1); // turns into a positive integer
+
+Math.round(3.3); // rounds to the nearest whole number (3)
+
+Math.ceil(4.3);
+
+Math.floor(2.3); // converts into a whole number
+
+Math.pow(2, 3); // 2 to the power of 3 (8)
+
+Math.random(); // generates a random number from 0 - 1
+
+Math.floor(Math.random() * 10 + 1); // generates a random number from 1 - 10
+
+
 Classes
 
 class name {
