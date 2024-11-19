@@ -7,6 +7,8 @@ String = ‘ ‘, “ “, ` ` (any sentences/word or letter)
 integer = 1 (any number)
 
 
+Block level scope:
+
 const - variable that doesn’t change its value
 
 let - variable that can change its value
@@ -33,8 +35,7 @@ newPerson.name = ‘Josh’;
 Concatenation:
 
 Const name = “John”;
-Const x = “Hello, I’m “ + name + “. Nice to meet you.”
-
+Const x = `Hello, I’m “ + name + “. Nice to meet you.`
 Template literals: 
 
 Const x = “Hello, I’m ${name}. Nice to meet you.”
@@ -85,6 +86,335 @@ Math.random(); // generates a random number from 0 - 1
 Math.floor(Math.random() * 10 + 1); // generates a random number from 1 - 10
 
 
+
+
+Functions
+
+A Javascript function is a block of code designed to perform a specific task. It’s also a way to group code together, making it easier to understand.
+
+Basic function:
+
+function functionName(parameter) {
+	console.log(“function body”);
+}
+
+callFunction();
+
+
+Arrow functions
+
+An arrow function in JavaScript is a more concise way to write function expressions. 
+Introduced in ES6, arrow functions are especially useful for shorter functions and 
+are often used with array methods like map, filter, and reduce.
+
+Syntax:
+
+(param1, param2, ...) => expression
+Parentheses: Required if there are zero or multiple parameters, but optional if there's exactly one parameter.
+Arrow (=>): Separates the parameter list from the function body.
+Expression: If the body has a single expression, it implicitly returns the result. For multiple statements, you must use curly braces {} and an explicit return.
+
+Examples:
+1. Basic Arrow Function:
+Equivalent to function expression:
+
+// Traditional function
+const add = function (a, b) {
+  return a + b;
+};
+
+// Arrow function
+const addArrow = (a, b) => a + b;
+
+console.log(add(2, 3));        // Output: 5
+console.log(addArrow(2, 3));   // Output: 5
+
+2. Single Parameter (Parentheses Optional):
+If the function takes a single parameter, you can omit the parentheses:
+
+const square = x => x * x;
+
+console.log(square(4)); // Output: 16
+
+3. No Parameters (Parentheses Required):
+If there are no parameters, use empty parentheses:
+
+const greet = () => 'Hello, World!';
+
+console.log(greet()); // Output: Hello, World!
+
+4. Multiline Function Body:
+For functions with multiple statements, use curly braces {} and return:
+
+const multiply = (a, b) => {
+  const result = a * b;
+  return result;
+};
+
+console.log(multiply(3, 4)); // Output: 12
+
+Key Characteristics:
+1. Implicit Return:
+If the function body contains a single expression, the result is returned implicitly without using the return keyword.
+
+const double = x => x * 2;
+console.log(double(5)); // Output: 10
+
+2. Lexical this Binding:
+Arrow functions do not have their own this. Instead, they inherit this from the surrounding scope. This makes them useful in situations where this can be ambiguous.
+
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayName = function () {
+  setTimeout(() => {
+    console.log(`My name is ${this.name}`); // Arrow function inherits `this` from `sayName`
+  }, 1000);
+};
+
+const john = new Person('John');
+john.sayName(); // Output: My name is John
+Note: In contrast, a traditional function would require bind(this) or saving this to a variable.
+
+3. Cannot Be Used as Constructors:
+Arrow functions cannot be used with new to create objects because they don’t have a this binding or a prototype.
+
+const Foo = () => {};
+const obj = new Foo(); // TypeError: Foo is not a constructor
+When to Use Arrow Functions:
+When you need concise and clean syntax.
+When this binding needs to refer to the surrounding lexical scope.
+For callbacks or methods like map, filter, reduce, etc.
+When Not to Use Arrow Functions:
+When defining methods in an object literal or class (use traditional function to preserve this binding).
+When creating constructor functions.
+
+
+Object Literals
+
+In JavaScript, an object literal is a simple way to create an object using curly braces {}. 
+It allows you to define properties (key-value pairs) and methods directly.
+
+Syntax:
+
+const objectName = {
+  key1: value1,
+  key2: value2,
+  key3: function() {
+    // Method logic
+  }
+};
+
+Keys are the property names (can be strings, or symbols).
+Values can be of any data type: strings, numbers, arrays, functions, or even other objects.
+
+Example:
+
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 30,
+  hobbies: ['reading', 'gaming', 'coding'],
+  greet: function () {
+    return `Hello, my name is ${this.firstName} ${this.lastName}.`;
+  },
+  isAdult: function () {
+    return this.age >= 18;
+  }
+};
+
+console.log(person.firstName); // Output: John
+console.log(person.greet());   // Output: Hello, my name is John Doe.
+console.log(person.isAdult()); // Output: true
+
+Features:
+1. Shorthand Property Names:
+If the property name and the variable name are the same, you can use shorthand:
+
+const firstName = 'Alice';
+const lastName = 'Smith';
+
+const user = { firstName, lastName };
+console.log(user); // Output: { firstName: 'Alice', lastName: 'Smith' }
+
+2. Computed Property Names:
+You can use an expression inside square brackets [] to compute the property name dynamically:
+
+const key = 'dynamicKey';
+const obj = {
+  [key]: 'This is a dynamic value',
+};
+
+console.log(obj.dynamicKey); // Output: This is a dynamic value
+
+3. Method Definition Shorthand:
+You can define methods without the function keyword:
+
+const calculator = {
+  add(a, b) {
+    return a + b;
+  },
+  subtract(a, b) {
+    return a - b;
+  }
+};
+
+console.log(calculator.add(2, 3));      // Output: 5
+console.log(calculator.subtract(5, 3)); // Output: 2
+
+4. Nested Objects:
+Objects can have other objects as values:
+
+const car = {
+  brand: 'Tesla',
+  model: 'Model 3',
+  specifications: {
+    range: '358 miles',
+    topSpeed: '140 mph',
+  }
+};
+
+console.log(car.specifications.range); // Output: 358 miles
+
+Advantages of Object Literals:
+Simple and concise: No need for a constructor or class to create objects.
+Flexible: You can easily add, modify, or delete properties.
+Modifying Object Properties:
+
+const book = {
+  title: 'JavaScript Basics',
+  author: 'Jane Doe',
+};
+
+// Add a new property
+book.year = 2021;
+
+// Modify an existing property
+book.author = 'John Doe';
+
+// Delete a property
+delete book.year;
+
+console.log(book);
+// Output: { title: 'JavaScript Basics', author: 'John Doe' }
+
+
+Date Constructor
+The Date() constructor creates Date objects. When called as a function, it returns a string representing the current time.
+Const date = new Date(); // Will return the current date and time
+Const bday = new Date(06-27-2006); // Will return the following date but with no specified time.
+Date Object Methods:
+X = x.getTime(); // 
+x = x.getFullYear(); // gets the full year, example: ‘1932’
+x = x.getMonth();
+x = x.getDate();
+x = x.getDay();
+x = x.getHours();
+x = x.getMinutes();
+x = x.getSeconds();
+x = `${x.getFullYear()}-${x.getMonth() + 1} -${x.getDate()}`;
+
+x = Intl.DateTimeFormat(‘en-US’).format(x); // displays the date in the united states date format
+x = x.toLocaleString(‘default’, {month: ‘short}); // display the month in short form (october would be ‘oct’).
+
+
+
+
+Arrays 
+
+
+An array is a variable that can hold more than one value. Arrays go by index, meaning it starts counting from 0.
+
+
+Example: const alphabet = [‘a’, ‘b’, ‘c’];
+
+
+Access a specific item by index:
+
+
+let x;
+x = alphabet[0]; // index 0 is ‘a’
+
+
+x = alphabet.length; // the length would be 2 because the last item is in index 2.
+
+
+x = `my favorite letter is ${alphabet[2]}`; // ‘my favorite letter is b’
+
+
+Array Methods
+
+
+Const arr = [34, 55, 95, 20, 15];
+
+
+arr.push(100); // adds a new element at the end of an array
+
+
+arr.pop(); //removes last element of an array
+
+
+arr.unshift(99); // adds new element at the beginning of an array
+
+
+arr.shift(); // removes the first element of an array
+
+
+arr.reverse(); // reverses the whole array
+
+
+x = arr.indexOf(15); // will log index 4
+
+
+x = arr.slice(1); // removes an element from an array
+
+
+X = arr.splice(2, 2); // will add ‘2’ after index 2
+
+
+
+
+JSON
+
+
+JSON stands for JavaScript Object Notation and is a text format for storing and transporting data.
+In JSON, keys must be strings, written with double quotes:
+{
+name: “Jason”;
+}
+
+
+JSON.stringify(); // turns object into a JSON string
+JSON.parse(); // turns strings into objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Classes
 
 class name {
@@ -99,6 +429,7 @@ class name {
 	set parameters(newParameters) {
 		This._parameters = this._newParameters;
 	} //setter
+
 
 	toggleStatus() {
 		// add functions here
@@ -223,6 +554,16 @@ async function asyncCall() {
 
 asyncCall();
 
+await is not a variable it is a keyword. ALSO -> Top-Level await (ES2022+): “If you attempt to use await at the top level in environments not supporting ES2022+ or in non-modules, you’ll get a syntax error.”
+Example ->
+async function fetchData() {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  console.log(data);
+}
+fetchData();
+
+
 
 
 Independent Promises : async function contains multiple promises which are not dependent on the results of one another to execute
@@ -330,24 +671,21 @@ async function postData(url = '', data = {}) {
  return response.json(); // parses JSON response into native JavaScript objects
 }
 
-JS Object Literal - An object literal is a list of name:value pairs inside curly braces {}.
 
-EXAMPLE:
-const person1 = {
-  name: 'Mason',
-  age: 18,
-  birthYear: 2006,
-  location: 'Burbank',
-  job: 'Student Programmer',
-  salary: '$100k'
-};
 
-Ternary Operator: operator that takes three operands: a condition followed by a question mark, then an expression to execute if the condition is true followed by a colon, and finally the expression to execute if the condition is false.
 
-EXAMPLE:
-function getFee(isMember) {
-  return isMember ? '$2.00' : '$10.00';
-}
 
-// isMember is the condition, if isMember is considered true, then the value will be '$2.00'. Otherwise, the value will be '$10.00'.
+
+
+
+
+
+c
+
+
+
+});
+
+
+});
 
