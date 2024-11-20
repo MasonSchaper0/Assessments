@@ -1,20 +1,26 @@
-Variables, Data Types, etc.
+Variables, Data Types
 
-Primitive Values:
+Primitive Values: the fundamental building blocks of data manipulation, and they specify the type and size of variable values.
+
+Examples:
 
 Boolean = true/false
 String = ‘ ‘, “ “, ` ` (any sentences/word or letter)
 integer = 1 (any number)
 
+*********
 
-Block level scope:
+Block level scope: Determines the visibility and accessibility of variables
 
 const - variable that doesn’t change its value
 
 let - variable that can change its value
 
+// ‘var’ is NOT a block level scope and is typically never used at all.
 
-Object (stores information about a specific element)
+*********
+
+JS Object (stores information about a specific element/variable)
 
 const person = {
 name: ‘John’;
@@ -22,83 +28,225 @@ age: 20;
 job: student;
 }
 
+// you can input all of this information into a string using the methods below:
 
-Reference Values:
-
-let newName = name;
-newName = ‘John’;
-
-let newPerson = person;
-newPerson.name = ‘Josh’;
-
-
-Concatenation:
+Concatenation: the operation of joining character strings end-to-end.
 
 Const name = “John”;
-Const x = `Hello, I’m “ + name + “. Nice to meet you.`
-Template literals: 
+Const x = “Hello, I’m “ + name + “. Nice to meet you.”;
 
-Const x = “Hello, I’m ${name}. Nice to meet you.”
+Template literals: template literals are literals delimited with backtick (`) characters, allowing for multi-line strings.
+
+Const x = `Hello, I’m ${name}. Nice to meet you.`;
+
+// You must use back-ticks ( ` ` ) when using template literals.
+
+Both the concatenation and template literal strings are equivalent to the same sentence as: 
+“Hello, I’m John. Nice to meet you.”
+
+*********
 
 
-Strings:
+Strings: Anything that is between a pair of quotes. Sentences, letters, words, etc.
 
+example:
 const x = “hi sir”;
 console.log(x);
 
-x = s.toUpperCase();
+String Methods:
+
+Const x = “Hi sir”;
+
+x = s.toUpperCase(); 
+// converts every letter in a string to uppercase: “HI SIR”;
 
 x = x.toLowerCase();
+// converts every letter in a string to lowercase: “hi sir”;
 
-x = x.charAt(0);
+x = x.charAt(0); 
+// will grab a specific letter in a string. In this instance, it will grab the letter at index 0 (“h”); 
 
-x = x.indexOf(‘d’);
+x = x.indexOf(x); 
+// Will count every character in a string besides spaces. This also begins at index 0 so in this case, the method would log: 4.
 
-x = x.substring(0, 2); // will only print ‘hi’
+x = x.substring(0, 2); 
+// will only print ‘hi’, the first value is the starting point while the second value is the end point. It will start at index 0, and grab each letter in the string until it reaches index 2 (but it won’t grab index 2).
 
-x = x.slice(-4); // will only print ‘h’
+x = x.slice(2); 
+// this will extract a fraction of the string, and can be returned as a new string. 
+In this example, I’ve extracted everything up till index 2. Meaning x would log to “ir”. You can also use a starting and ending point like this → x.slice(1, 3); // this will log: “i si”.
 
 x = x.trim();
+// This simply removes any extra space from a string.
 
-x = x.replace(‘sir’, ‘John’); // replaces sir with John
+x = x.replace(‘sir’, ‘John’); 
+// replaces one string with another string. The first value will be the target and the second value is what you want to replace the target with. In this case, we are replacing ‘sir’ with ‘John’.
 
-x = x.includes(‘hello’); // returns false because this isn’t included in the string.
+x = x.includes(‘hello’); 
+// This is checking if a specific part of a string is found within a string (case-sensitive). The method will return true or false depending if the string is found or not. In this case, x doesn’t include ‘hello’ so it will return false.
 
-x = x.split(‘’); // will split each each character into an array
+x = x.split(‘’); 
+// will split each each character into an array
 
-
-Math
-
-Math.sqrt(9); // finds the square root of 9 (3)
-
-Math.abs(-1); // turns into a positive integer
-
-Math.round(3.3); // rounds to the nearest whole number (3)
-
-Math.ceil(4.3);
-
-Math.floor(2.3); // converts into a whole number
-
-Math.pow(2, 3); // 2 to the power of 3 (8)
-
-Math.random(); // generates a random number from 0 - 1
-
-Math.floor(Math.random() * 10 + 1); // generates a random number from 1 - 10
+*********
 
 
+Math Methods
+
+Math.sqrt(9); 
+// calculates the square root of 9, which is 3.
+
+Math.abs(-1); 
+// turns a number into an absolute value (1). Meaning it will return positive no matter what.
+
+Math.round(3.3);
+// returns to the nearest integer, which is 3 in this case.
+
+Math.ceil(4.3); 
+// rounds a number UP to the nearest integer. Meaning in this case, it would return 5 instead of 4.
+
+Math.floor(2.9);
+ //rounds a number DOWN to the nearest integer. Meaning in this case, it would return 4 instead of 5.
+
+Math.pow(2, 3); 
+// This will calculate 2 to the power of 3, which is equal to 8. The first number is the number that will be calculated and the second number is what power it is set to (2^3).
+
+Math.random(); 
+// By default, it generates a random number from 0 - 1. However, the numbers it can generate can be modified.
+
+EXAMPLE:
+
+Math.floor(Math.random() * 10 + 1);
+
+// generates a random number from 1 - 10, the math.floor method will make it so there are no random decimals. The ‘* 10’ is setting the limit, meaning it can’t return anything that is greater than or equal to 10. However, by adding the ‘+ 1’. We are setting the limit to 11. Making it return a random number from 1-10.
+
+*********
 
 
 Functions
 
 A Javascript function is a block of code designed to perform a specific task. It’s also a way to group code together, making it easier to understand.
 
-Basic function:
+Basic function format:
 
 function functionName(parameter) {
-	console.log(“function body”);
+	// function body
 }
 
-callFunction();
+callFunction(); // Output
+
+2. Function Expression:
+A function assigned to a variable. It is not hoisted, so it must be defined before being used.
+
+
+const greet = function (name) {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet('Bob')); // Output: Hello, Bob!
+
+*************
+
+4. Anonymous Function:
+A function without a name. Often used as a callback.
+
+
+setTimeout(function () {
+  console.log('This is an anonymous function!');
+}, 1000);
+
+*************
+
+5. IIFE (Immediately Invoked Function Expression):
+A function that runs immediately after it is defined.
+
+
+(function () {
+  console.log('This function runs immediately!');
+})();
+Parameters and Arguments
+Functions can take inputs (parameters) and return outputs. If a parameter is not provided, it is undefined by default.
+
+
+function add(a, b = 0) {
+  return a + b;
+}
+
+console.log(add(5, 10)); // Output: 15
+console.log(add(5));     // Output: 5 (b defaults to 0)
+Return Statement
+The return statement specifies the value a function should return. If omitted, the function returns undefined.
+
+
+function square(num) {
+  return num * num;
+}
+
+console.log(square(4)); // Output: 16
+Scope
+Functions have their own local scope:
+
+Variables defined inside a function are not accessible outside it.
+Functions can access variables from the outer (global) scope.
+
+const globalVar = 'Global';
+
+function testScope() {
+  const localVar = 'Local';
+  console.log(globalVar); // Output: Global
+  console.log(localVar);  // Output: Local
+}
+
+testScope();
+console.log(localVar); // Error: localVar is not defined
+Default Parameters
+You can set default values for function parameters.
+
+
+function greet(name = 'Guest') {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet()); // Output: Hello, Guest!
+console.log(greet('Alice')); // Output: Hello, Alice!
+Rest Parameters
+Use ... to accept a variable number of arguments as an array.
+
+
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // Output: 10
+Anonymous vs. Named Functions
+Anonymous: A function without a name. Useful for callbacks.
+Named: A function with a name, helpful for debugging.
+
+const anonymous = function () {
+  console.log('I am anonymous!');
+};
+
+function named() {
+  console.log('I am named!');
+}
+
+*************
+
+Callback Functions
+A function passed as an argument to another function to be executed later.
+
+
+function processUserInput(callback) {
+  const name = 'Alice';
+  callback(name);
+}
+
+processUserInput(function (name) {
+  console.log(`Hello, ${name}!`);
+});
+// Output: Hello, Alice!
+
+*************
 
 
 Arrow functions
@@ -302,23 +450,80 @@ console.log(book);
 
 Date Constructor
 The Date() constructor creates Date objects. When called as a function, it returns a string representing the current time.
-Const date = new Date(); // Will return the current date and time
+Const date = new Date();  // Will return the current date and time
 Const bday = new Date(06-27-2006); // Will return the following date but with no specified time.
 Date Object Methods:
-X = x.getTime(); // 
-x = x.getFullYear(); // gets the full year, example: ‘1932’
-x = x.getMonth();
-x = x.getDate();
-x = x.getDay();
-x = x.getHours();
-x = x.getMinutes();
-x = x.getSeconds();
-x = `${x.getFullYear()}-${x.getMonth() + 1} -${x.getDate()}`;
+JavaScript's Date object provides methods to work with dates and times, allowing you to create, manipulate, and format dates.
 
-x = Intl.DateTimeFormat(‘en-US’).format(x); // displays the date in the united states date format
-x = x.toLocaleString(‘default’, {month: ‘short}); // display the month in short form (october would be ‘oct’).
+Creating a Date Object
+
+You can create a Date object using the new Date() constructor:
+
+1. Current Date and Time:
+Creates a Date object with the current date and time.
+
+const now = new Date();
+console.log(now);
+// Output: Current date and time (e.g., Wed Nov 18 2024 15:00:00 GMT+0000)
+
+2. Specific Date and Time:
+Pass arguments to set a specific date and time:
+
+const specificDate = new Date(2024, 10, 18, 15, 30, 0); // Months are 0-indexed
+console.log(specificDate);
+// Output: Mon Nov 18 2024 15:30:00 GMT+0000
+
+Syntax: new Date(year, month, day, hours, minutes, seconds, milliseconds)
+Year: Required.
+Month: 0-indexed (January is 0, December is 11).
+Other arguments are optional and default to 0.
+
+3. Using a Timestamp:
+Pass the number of milliseconds since January 1, 1970 (Unix epoch).
+
+const timestampDate = new Date(1699900000000);
+console.log(timestampDate);
+// Output: Date corresponding to the timestamp
+
+4. Using a Date String:
+Parse a date string:
+
+const stringDate = new Date("2024-11-18T15:30:00");
+console.log(stringDate);
+// Output: Mon Nov 18 2024 15:30:00 GMT+0000
+--------------------------------
+
+Common Methods
+Getting Date Information
+getFullYear() - Returns the year.
+
+const year = now.getFullYear();
+console.log(year); // Output: 2024
+getMonth() - Returns the month (0-indexed).
+
+const month = now.getMonth();
+console.log(month); // Output: 10 (November)
+getDate() - Returns the day of the month.
+
+const day = now.getDate();
+console.log(day); // Output: 18
+getDay() - Returns the day of the week (0 = Sunday, 6 = Saturday).
+
+const weekday = now.getDay();
+console.log(weekday); // Output: 1 (Monday)
+getHours(), getMinutes(), getSeconds(), getMilliseconds() - Return corresponding time components.
+
+const hours = now.getHours();
+console.log(hours); // Output: Current hour
+getTime() - Returns the timestamp (milliseconds since the Unix epoch).
+
+const timestamp = now.getTime();
+console.log(timestamp); // Output: Current timestamp
 
 
+
+
+*********
 
 
 Arrays 
@@ -343,36 +548,55 @@ x = alphabet.length; // the length would be 2 because the last item is in index 
 x = `my favorite letter is ${alphabet[2]}`; // ‘my favorite letter is b’
 
 
+*********
+
+
 Array Methods
 
 
 Const arr = [34, 55, 95, 20, 15];
 
 
-arr.push(100); // adds a new element at the end of an array
+arr.push(100); 
+// adds a new element at the end of an array [34, 55, 95, 20, 15, 100];
 
 
-arr.pop(); //removes last element of an array
+arr.pop();
+//removes last element of an array [34, 55, 95, 20];
 
 
-arr.unshift(99); // adds new element at the beginning of an array
+arr.unshift(99); 
+// adds new element at the beginning of an array [99, 34, 55, 95, 20, 15];
 
 
-arr.shift(); // removes the first element of an array
+arr.shift(); 
+// removes the first element of an array [55, 95, 20, 15];
 
 
-arr.reverse(); // reverses the whole array
+arr.reverse(); 
+// reverses the whole array [15, 20, 95, 55, 34];
 
 
-x = arr.indexOf(15); // will log index 4
+x = arr.indexOf(15); 
+// will log index 4 because 15 is index 4  [34, 55, 95, 20, 15];
 
 
-x = arr.slice(1); // removes an element from an array
+x = arr.slice(1); 
+// removes an element from an array. In this case, it’s removing the element at index 1 (55). [34, 95, 20, 15];
 
 
-X = arr.splice(2, 2); // will add ‘2’ after index 2
+x = arr.splice(2, 2); 
+// The first element is the ‘start’, the second element is the ‘delete count’. This means whatever the second value is, is how many elements will be removed after the start. In this instance, it starts at index 2 and will remove elements from index 3 and 4. You can also add new elements to replace what was in those indexes.
 
 
+EXAMPLE: 
+
+
+arr.slice(2, 2, 32); 
+// referring back to the array in the beginning, this would remove both 20 and 15 from the array and input 32 like this → [34, 55, 95, 32];
+
+
+*********
 
 
 JSON
@@ -387,32 +611,7 @@ name: “Jason”;
 
 JSON.stringify(); // turns object into a JSON string
 JSON.parse(); // turns strings into objects
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*********
 
 
 Classes
@@ -441,6 +640,9 @@ constructor(parameters) {
 		super(parameter); // call super to plug in the parameters from the parent class
 	}
 }
+
+*********
+
 
 Modules
 
@@ -474,6 +676,9 @@ export getValue;
 
 import getValue from ‘./main.js’;
 
+*********
+
+
 Promises
 
 A promise can be in 1 of 3 states:
@@ -506,6 +711,8 @@ promise1.catch((error) => {
 });
 // Expected output: Error: Uh-oh!
 
+*********
+
 
 Chaining Multiple Promises: depend on each other to execute or that must be executed in a certain order, also known as composition.
 
@@ -521,9 +728,7 @@ firstPromiseFunction()
 
 Promise all() : only used when every argument in a promise resolves and if any promises in the argument array rejects, the single promise returned with Promise all() will be rejected as well.
 
-
-
-Async
+*********
 
 
 Async keyword: Each time when an async function is called, it returns a new Promise which will be resolved with the value returned by the async function, or rejected with an exception uncaught within the async function
@@ -590,6 +795,8 @@ async function serveDinner() {
 
 serveDinner();
 
+*********
+
 
 HTTP Requests 
 
@@ -606,9 +813,15 @@ fetch(endpoint, {cache: 'no-cache'}).then(response => {
 
 // the cache: ‘no-cache’ is used to support a specific browser
 
+*********
+
+
 The throw method (goes inside a fetch function) : The throw statement throws a user-defined exception. Execution of the current function will stop (the statements after throw won't be executed), and control will be passed to the first catch block in the call stack. If no catch block exists among caller functions, the program will terminate.
 
 Throw new Error (‘Request Failed!’); // this will stop the current function and revert back to the first block.
+
+*********
+
 
 .then() method : used with promises to handle asynchronous operations. It accepts two callback functions: one for handling a promise’s resolved value and one for handling its rejection. It returns a new promise, allowing for method chaining.
 
@@ -619,6 +832,9 @@ Example:
 }).then (paramater2 => { // callback function
 	
 })
+
+*********
+
 
 POST requests 
 
@@ -634,11 +850,14 @@ fetch("https://jsonplaceholder.typicode.com/todos", { // add keys to the fetch f
   }
 });
 
-// the body holds the data to be sent to the server and added to the JSONPlaceholder todos API. Also, the headers hold the type of content you want to send to the server, which in this case is JSON data.
+//  the body holds the data to be sent to the server and added to the JSONPlaceholder todos API. Also, the headers hold the type of content you want to send to the server, which in this case is JSON data.
 
 
 
 // you’re able to attach multiple .then() methods to each other by adding another one at the end of the method. You can also add call-back functions inside the .then() methods.
+
+*********
+
 
 Async GET requests
 
@@ -658,6 +877,9 @@ const getSuggestions = async () => {
  }
 }
 
+*********
+
+
 Async POST requests
 
 async function postData(url = '', data = {}) {
@@ -670,22 +892,3 @@ async function postData(url = '', data = {}) {
  });
  return response.json(); // parses JSON response into native JavaScript objects
 }
-
-
-
-
-
-
-
-
-
-
-c
-
-
-
-});
-
-
-});
-
