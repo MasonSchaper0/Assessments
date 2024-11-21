@@ -68,10 +68,10 @@ let multiply = function (a, b) {
 Variables declared with let or const are also hoisted, but they exist in a temporal dead zone (TDZ) from the start of the block until the declaration is encountered. Accessing them before initialization throws a ReferenceError.
 
 Summary of Hoisting for Functions
-Declaration Type	               Hoisted?	            Usable Before Declaration?
-Function Declaration	           Yes	                Yes (fully hoisted, including body)
-Function Expression(var)	       Variable hoisted	    No (initialized to undefined)
-Function Expression(let/const)	 Variable hoisted	    No (TDZ until initialization)
+Declaration Type-----------------Hoisted?-------------Usable Before Declaration?
+Function Declaration-------------Yes------------------Yes (fully hoisted, including body)
+Function Expression(var)---------Variable hoisted-----No (initialized to undefined)
+Function Expression(let/const)---Variable hoisted-----No (TDZ until initialization)
 
 EXPLANATION of "Hoisted" --------END
 
