@@ -27,6 +27,55 @@ const greet = function (name) {
 console.log(greet('Bob')); // Output: Hello, Bob!
 
 *************
+
+EXPLANATION of "Hoisted" --------START
+
+In JavaScript, hoisting refers to the behavior where variable and function declarations are moved (or "hoisted") to the top of their containing scope during the compile phase, before the code is executed. This means you can use functions or variables before they are defined in the code.
+
+Function Hoisting
+For functions, hoisting depends on whether the function is declared using a function declaration or a function expression.
+
+1. Function Declarations
+Functions declared using the function keyword are hoisted completely, including their body. You can call these functions before their actual declaration in the code.
+
+Example:
+
+console.log(add(2, 3)); // Output: 5
+
+function add(a, b) {
+  return a + b;
+}
+Here, the add function is hoisted to the top of its scope, so it's available for use even before its declaration in the code.
+
+2. Function Expressions
+Functions assigned to a variable (using var, let, or const) are not fully hoisted. The variable itself is hoisted, but it remains uninitialized until the assignment is reached in the code.
+
+Example with var:
+
+console.log(subtract(5, 3)); // Output: TypeError: subtract is not a function
+
+var subtract = function (a, b) {
+  return a - b;
+};
+The subtract variable is hoisted to the top, but its value is undefined until the function is assigned. Trying to call it before the assignment results in an error.
+Example with let or const:
+
+console.log(multiply(2, 3)); // ReferenceError: Cannot access 'multiply' before initialization
+
+let multiply = function (a, b) {
+  return a * b;
+};
+Variables declared with let or const are also hoisted, but they exist in a temporal dead zone (TDZ) from the start of the block until the declaration is encountered. Accessing them before initialization throws a ReferenceError.
+
+Summary of Hoisting for Functions
+Declaration Type	               Hoisted?	            Usable Before Declaration?
+Function Declaration	           Yes	                Yes (fully hoisted, including body)
+Function Expression(var)	       Variable hoisted	    No (initialized to undefined)
+Function Expression(let/const)	 Variable hoisted	    No (TDZ until initialization)
+
+EXPLANATION of "Hoisted" --------END
+
+*************
   
 3. Arrow Function:
 A concise way to write functions, introduced in ES6. It does not have its own this or arguments.
@@ -144,6 +193,7 @@ const person = {
 };
 
 person.greet(); // Output: Hi, I’m Bob
+
 Summary
 Functions in JavaScript are essential for:
 
@@ -193,6 +243,7 @@ Parse a date string:
 const stringDate = new Date("2024-11-18T15:30:00");
 console.log(stringDate);
 // Output: Mon Nov 18 2024 15:30:00 GMT+0000
+
 --------------------------------
 
 Common Methods
