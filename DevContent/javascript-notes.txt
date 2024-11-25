@@ -1,3 +1,91 @@
+------------ Data Types ------------ START
+1. Boolean --> Checks if a value based on it's condition if it's true or false.
+  Syntax:
+  let x = 0;
+  if (x = 0) {
+    return true;
+  }
+
+  else {
+    return false;
+  }
+  console.log(x);
+  
+  // Expected Output --> True
+
+2. String --> sequence of characters enclosed within either 
+single quotes ('), double quotes ("), or backticks (``).
+  Syntax:
+  let x = "string";
+
+3. Number --> Any type of number, decimal, fraction, etc (1, 2.3, 1/2).
+  Syntax:
+  let x = 0;
+
+------------ Data Types ------------ END
+
+------------ Variables ------------ START
+
+1. const - variable with a value that doesn't change.
+  Example: 
+  const x = 0;
+  x = 1; 
+  console.log(x);
+  
+  // this will cause an error because you can't change a const variable.
+
+2. let - variable with a value that can change.
+  Example:
+  let x = 0;
+  x = 1; 
+  console.log(x);
+  
+  // Expected output --> 1
+
+------------ Variables ------------ END
+
+------------ JS Objects ------------ START
+
+What is a JS Object? --> An object is a key that has a collection of properties that describes itself.
+
+Syntax: 
+const key = {
+  property1: '';
+  property2: 0;
+  property3: false;
+}
+
+Example:
+const person = {
+  name: ‘John’;
+  age: 20;
+  job: student;
+}
+
+Example Explanation --> When you meet a person, you don't just call them 'person'. 
+There are things about them, like their name, age, job, etc.
+
+// You can input the object's properties into a string using the methods below:
+1. Concatenation: the operation of combining elements together into a string. After a closing quote,
+you input the variable in between a pair of plus signs, connecting it to the other part of the string.
+
+Example:
+  let sentence = “Hello, I’m “ + name + “. Nice to meet you.”;
+  console.log(sentence);
+
+2. Template literals: template literals are used to input information from objects into a string.
+To do this, you must put the information into curly braces with a money sign going before the curly braces.
+Instead of using quotes on the string, you must use backtick (`) characters.
+
+Example:
+  let sentence = `Hello, I’m ${name}. Nice to meet you.`;
+  console.log(sentence);
+
+Both of the above examples will log this string:
+  “Hello, I’m John. Nice to meet you.”
+
+------------ JS Objects ------------ END
+
 ------------ Functions ------------ START
 
 In JavaScript, a function is a reusable block of code designed to perform a particular task. 
@@ -25,55 +113,6 @@ const greet = function (name) {
 };
 
 console.log(greet('Bob')); // Output: Hello, Bob!
-
-*************
-
-EXPLANATION of "Hoisted" --------START
-
-In JavaScript, hoisting refers to the behavior where variable and function declarations are moved (or "hoisted") to the top of their containing scope during the compile phase, before the code is executed. This means you can use functions or variables before they are defined in the code.
-
-Function Hoisting
-For functions, hoisting depends on whether the function is declared using a function declaration or a function expression.
-
-1. Function Declarations
-Functions declared using the function keyword are hoisted completely, including their body. You can call these functions before their actual declaration in the code.
-
-Example:
-
-console.log(add(2, 3)); // Output: 5
-
-function add(a, b) {
-  return a + b;
-}
-Here, the add function is hoisted to the top of its scope, so it's available for use even before its declaration in the code.
-
-2. Function Expressions
-Functions assigned to a variable (using var, let, or const) are not fully hoisted. The variable itself is hoisted, but it remains uninitialized until the assignment is reached in the code.
-
-Example with var:
-
-console.log(subtract(5, 3)); // Output: TypeError: subtract is not a function
-
-var subtract = function (a, b) {
-  return a - b;
-};
-The subtract variable is hoisted to the top, but its value is undefined until the function is assigned. Trying to call it before the assignment results in an error.
-Example with let or const:
-
-console.log(multiply(2, 3)); // ReferenceError: Cannot access 'multiply' before initialization
-
-let multiply = function (a, b) {
-  return a * b;
-};
-Variables declared with let or const are also hoisted, but they exist in a temporal dead zone (TDZ) from the start of the block until the declaration is encountered. Accessing them before initialization throws a ReferenceError.
-
-Summary of Hoisting for Functions
-Declaration Type-----------------Hoisted?-------------Usable Before Declaration?
-Function Declaration-------------Yes------------------Yes (fully hoisted, including body)
-Function Expression(var)---------Variable hoisted-----No (initialized to undefined)
-Function Expression(let/const)---Variable hoisted-----No (TDZ until initialization)
-
-EXPLANATION of "Hoisted" --------END
 
 *************
   
@@ -193,7 +232,6 @@ const person = {
 };
 
 person.greet(); // Output: Hi, I’m Bob
-
 Summary
 Functions in JavaScript are essential for:
 
@@ -243,7 +281,6 @@ Parse a date string:
 const stringDate = new Date("2024-11-18T15:30:00");
 console.log(stringDate);
 // Output: Mon Nov 18 2024 15:30:00 GMT+0000
-
 --------------------------------
 
 Common Methods
@@ -274,3 +311,287 @@ const timestamp = now.getTime();
 console.log(timestamp); // Output: Current timestamp
 
 ---------- Date Methods -----------END
+
+------------ String Methods ------------ START
+
+The String below is an example string to demonstrate the following methods.
+  let x = “Hi sir”;
+
+x = x.toUpperCase(); 
+  Explanation:
+  converts every letter in a string to uppercase.
+  Expected output -> “HI SIR”;
+
+x = x.toLowerCase();
+  Explanation:
+  converts every letter in a string to lowercase.
+  Expected output -> “hi sir”;
+
+x = x.charAt(0); 
+  Explanation:
+  will grab a specific letter in a string. 
+  In this instance, it will grab the letter at index.
+  Expected output -> h
+
+x = x.indexOf(x); 
+  Explanation:
+  Will count every character in a string besides spaces. 
+  Expected output -> 4
+
+x = x.substring(0, 2); 
+  Explanation:
+  will only print ‘hi’, the first value is the starting point while the second value is the end point.
+  It will start at index 0, and grab each letter in the string until it reaches index 2.
+  Expected output -> hi 
+
+x = x.slice(2); 
+  Explanation:
+  this will extract a fraction of the string starting from index 0, and can be returned as a new string. 
+  Expected output -> ir
+
+x = x.trim();
+  Explanation:
+  This simply removes any extra space from a string.
+
+x = x.replace(‘sir’, ‘John’); 
+  Explanation:
+  replaces one string with another string. 
+  The first value will be the target and the second value is what you want to replace the target with.
+  In this case, we are replacing ‘sir’ with ‘John’.
+  Expected output -> Hi John
+
+x = x.includes(‘hello’); 
+  Explanation:
+  This is checking if a specific part of a string is found within a string (case-sensitive).
+  The method will return true or false depending if the string is found or not.
+  In this case, x doesn’t include ‘hello’ so it will return false.
+  Expected output -> false
+
+------------ String Methods ------------ END
+
+------------ Math Methods ------------ START
+
+What are Math Methods? -> Static methods for calculating 
+functions and cannot be used with the 'new' operator. 
+
+Math.sqrt(9); 
+Explanation:
+  calculates the square root of 9, which is 3.
+  Expected output -> 3
+
+Math.abs(-1); 
+Explanation:
+  turns a number into an absolute value (1). Meaning it will return positive no matter what.
+  Expected output -> 1
+
+Math.round(3.3);
+Explanation:
+  returns to the nearest integer, which is 3 in this case.
+  Expected output -> 3
+
+Math.ceil(4.3); 
+Explanation:
+  rounds a number UP to the nearest integer. 
+  Meaning in this case, it would return 5 instead of 4. 
+  Expected output -> 5
+
+Math.floor(3.9);
+Explanation:
+  rounds a number DOWN to the nearest integer.
+  Meaning in this case, it would return 4 instead of 5.
+  Expected output -> 4
+
+Math.pow(2, 3); 
+Explanation:
+  This will calculate 2 to the power of 3, which is equal to 8. 
+  The first number is the number that will be calculated and
+  the second number is what power it is set to (2^3).
+  2^3 is equal to 2 * 2 * 2.
+  Expected output -> 8 
+
+Math.random(); 
+Explanation:
+  By default, it generates a random number from 0 - 1. However, 
+  the numbers it can generate can be modified.
+
+EXAMPLE:
+
+Math.floor(Math.random() * 10 + 1);
+Explanation:
+  generates a random number from 1 - 10, 
+  the Math.floor method will make it so there are no random decimals.
+  The ‘* 10’ is setting the limit, 
+  meaning it can’t return anything that is greater than or equal to 10. 
+  However, by adding the ‘+ 1’. We are setting the limit to 11. 
+  Making it return a random number from 1-10.
+
+------------ Math Methods ------------ END
+
+------------ If Else ------------ START
+1. Basic If Else: Executes code based on a condition, 
+if the condition is true then the code inside of the 'if' block will run. 
+Otherwise, it will run 'else' block instead.
+
+Example:
+  if(1 + 1 === 2) {
+    return true;
+  }
+
+  else {
+    return false;
+  }
+
+2. Nested If Statements: You can place an if statement inside of another if statement.
+
+Example:
+  if (1 + 1 === 2) { // first condition
+    if (2 + 2 === 4) { // second condition
+      return true;
+    }
+  }
+
+  else {
+    return false;
+  }
+
+Example Explanation --> If the first condition is true, then it will check if the second condition is true.
+If the first condition is false, then it will move on to the 'else' block. 
+
+3. Else if: If statements are executed from top to bottom. 
+The first statement that is true, will execute. If the first if statement is false,
+you can add an 'else if' to create a new condition. 
+
+Example: 
+  let x = 0;
+  if (x === 1) { // condition is not true
+    return true;
+  }
+
+  else if (x === 0) { // condition is true
+    return true;
+  }
+
+Example Explanation --> Since the first if statement isn't true, it will move on to the 'else-if' statement that IS true.
+
+4. Switch Statements: An alternative to if-statements. Executes code based on matching cases.
+
+Syntax:
+  switch (expression) {
+    case value1:
+      // code block 1;
+      break; // cuts off the code so it doesn't form a loop.
+    case value2:
+      // code block 2;
+      break;
+    default:
+       // default output, typically an error message;
+  }
+
+Example:
+  let day = 5
+
+  switch (day) {
+    case 1:
+      dayName = "Monday";
+      break;
+    case 2:
+      dayName = "Tuesday";
+      break;
+    case 3:
+      dayName = "Wednesday";
+      break;
+    case 4:
+      dayName = "Thursday";
+      break;
+    case 5:
+      dayName = "Friday";
+      break;
+    case 6:
+      dayName = "Saturday";
+      break;
+    case 7:
+      dayName = "Sunday";
+      break;
+    default:
+      dayName = "Invalid day";
+  }
+
+console.log(dayName); 
+// Expected output --> Friday
+
+5. Ternary Operator: operator that takes three arguments as input and returns one output.
+
+Syntax:
+  const x = condition ? "if true" : "if false";
+
+Example:
+  let age = 20;
+
+  const canVote = age >= 18 ? 'You can vote!' : 'You can't vote.';
+  console.log(canVote);
+
+  // Expected output --> You can vote!
+
+6. Nested Ternary Operator: Like If Statements, you can nest ternary operators.
+
+Example:
+  let grade = 95;
+  let results = (grade < 40) ? "Unsatisfactory" :
+                (grade < 60) ? "Average" :
+                (grade < 80) ? "Good" : "Excellent";
+  console.log(results);
+
+  // Expected output --> Excellent
+
+Example Explanation: There are multiple conditions based on the grade you get. 
+Anything less than 40 is Unsatisfactory, anything less than 60 is average, anything less than 80
+is good, and anything greater than or equal to 80 is excellent.
+
+------------ If Else ------------ END
+
+------------ Loops ------------ START
+
+1. for-loops: The for statement creates a loop with 3 optional expressions
+
+Statement 1: It is the initialization of the counter. It is executed once before the execution of the code block.
+Statement 2: It defines the condition for executing the code block
+Statement 3: It is the increment or decrement of the counter & executed after the code block has been executed.
+
+Syntax:
+  for (statement 1; statement 2; statement 3) {
+    // code
+  }
+
+Example: 
+  for (let i = 1; i <= 10; i++) {
+    console.log(i);
+  }
+
+// Expected output --> 1 2 3 4 5 6 7 8 9 10
+
+2. Nested for-loops
+
+Syntax:
+  for (statement 1; statement 2; statement 3) { // condition 1
+    for (statement 1; statement 2; statement 3) { // condition 2
+      // code
+    }
+  }
+
+  Example: 
+    for (let i = 1; i <= 10; i++) {
+      for (let j = 1; j <= 10; j++) {
+        console.log(`${i} x ${j} = ${i * j}`);
+      }
+    }
+
+  Example Explanation:
+    Outer loop: The outer loop, controlled by i, iterates from 1 to 10.
+
+    Inner loop: For each iteration of the outer loop, the inner loop, controlled by j,
+    also iterates from 1 to 10.
+
+    Expected Output --> (will display a multiplication table going all the way to multiples of 10).
+
+
+------------ Loops ------------ END
