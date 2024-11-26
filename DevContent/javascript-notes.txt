@@ -1,15 +1,20 @@
 ------------ Data Types ------------ START
 1. Boolean --> Checks if a value based on it's condition if it's true or false.
-  Syntax:
+=== checks both the value and type of x against 0. It's the preferred way to ensure the condition is correctly evaluated.
+
+Proper function declaration ->
+
+Syntax:
+
+  function checkValue() {
   let x = 0;
-  if (x === 0) {
+  if (x === 0) { //Using === (Strict Equality)
     return true;
   }
+  return false;
+}
 
-  else {
-    return false;
-  }
-  console.log(x);
+console.log(checkValue()); // Output: true
   
   // Expected Output --> True
 
