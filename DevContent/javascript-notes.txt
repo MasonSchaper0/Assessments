@@ -2,7 +2,7 @@
 1. Boolean --> Checks if a value based on it's condition if it's true or false.
   Syntax:
   let x = 0;
-  if (x = 0) {
+  if (x === 0) {
     return true;
   }
 
