@@ -8,7 +8,7 @@ Syntax:
 
   function checkValue() {
   let x = 0;
-  if (x === 0) { //Using === (Strict Equality)
+  if (x === 0) { // Using === (Strict Equality)
     return true;
   }
   return false;
@@ -352,56 +352,58 @@ console.log(timestamp); // Output: Current timestamp
 ------------ String Methods ------------ START
 
 The String below is an example string to demonstrate the following methods.
-  let x = “Hi sir”;
+  let x = 'Hi sir';
 
 x = x.toUpperCase(); 
   Explanation:
   converts every letter in a string to uppercase.
-  Expected output -> “HI SIR”;
+  Expected output -> HI SIR;
 
 x = x.toLowerCase();
   Explanation:
   converts every letter in a string to lowercase.
-  Expected output -> “hi sir”;
+  Expected output -> hi sir;
 
 x = x.charAt(0); 
   Explanation:
   will grab a specific letter in a string. 
   In this instance, it will grab the letter at index.
-  Expected output -> h
+  Expected output -> H
 
-x = x.indexOf(x); 
+let x = "Hi sir";
+let index = x.indexOf("i"); // come back to this one 
   Explanation:
-  Will count every character in a string besides spaces. 
-  Expected output -> 4
+  When you input a letter between quotes into the indexOf method, it will search for the first time the letter is used in the string and return it's index.
+  Expected output -> 1
 
 x = x.substring(0, 2); 
   Explanation:
   will only print ‘hi’, the first value is the starting point while the second value is the end point.
   It will start at index 0, and grab each letter in the string until it reaches index 2.
-  Expected output -> hi 
+  Expected output -> Hi 
 
-x = x.slice(2); 
+x = x.slice(4); 
   Explanation:
-  this will extract a fraction of the string starting from index 0, and can be returned as a new string. 
+  this will extract a fraction of the string starting from index 0 (including spaces), and can be returned as a new string. 
   Expected output -> ir
 
 x = x.trim();
   Explanation:
-  This simply removes any extra space from a string.
+  This simply removes any extra space from both ENDS of a string.
 
-x = x.replace(‘sir’, ‘John’); 
+let x = "Hi sir"; // using double quotes here because single quotes causes an error.
+x = x.replace("sir", "John"); 
   Explanation:
   replaces one string with another string. 
   The first value will be the target and the second value is what you want to replace the target with.
   In this case, we are replacing ‘sir’ with ‘John’.
   Expected output -> Hi John
 
-x = x.includes(‘hello’); 
+x = x.includes("hello"); 
   Explanation:
   This is checking if a specific part of a string is found within a string (case-sensitive).
   The method will return true or false depending if the string is found or not.
-  In this case, x doesn’t include ‘hello’ so it will return false.
+  In this case, x doesn’t include "hello" so it will return false.
   Expected output -> false
 
 ------------ String Methods ------------ END
@@ -471,11 +473,11 @@ Otherwise, it will run 'else' block instead.
 
 Example:
   if(1 + 1 === 2) {
-    return true;
+    console.log("corect");
   }
 
   else {
-    return false;
+    console.log("wrong");
   }
 
 2. Nested If Statements: You can place an if statement inside of another if statement.
@@ -483,12 +485,12 @@ Example:
 Example:
   if (1 + 1 === 2) { // first condition
     if (2 + 2 === 4) { // second condition
-      return true;
+      console.log("super correct");
     }
   }
 
   else {
-    return false;
+    console.log("wrong");
   }
 
 Example Explanation --> If the first condition is true, then it will check if the second condition is true.
@@ -500,12 +502,12 @@ you can add an 'else if' to create a new condition.
 
 Example: 
   let x = 0;
-  if (x === 1) { // condition is not true
-    return true;
+  if (x === 1) { // condition is not true so it won't be used
+    console.log("doesn't match");
   }
 
   else if (x === 0) { // condition is true
-    return true;
+    console.log("match");
   }
 
 Example Explanation --> Since the first if statement isn't true, it will move on to the 'else-if' statement that IS true.
@@ -564,7 +566,7 @@ Syntax:
 Example:
   let age = 20;
 
-  const canVote = age >= 18 ? 'You can vote!' : 'You can't vote.';
+  const canVote = age >= 18 ? "You can vote!" : "You can't vote.";
   console.log(canVote);
 
   // Expected output --> You can vote!
