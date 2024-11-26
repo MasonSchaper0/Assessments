@@ -632,5 +632,149 @@ Syntax:
 
     Expected Output --> (will display a multiplication table going all the way to multiples of 10).
 
+  3. For Of Loops: for traversing items of iterables (an object that can be looped over).
 
+  Syntax:
+    for (variable of iterable) {
+      // code block to be executed
+    }
+
+  Example:
+    const a = [ 1, 2, 3, 4, 5 ];
+
+    for (const item of a) {
+      console.log(item);
+    }
+
+  // Expected Output --> 1 2 3 4 5
+
+  4. For In Loops: iterates over the properties of an object.
+
+  Syntax:
+    for (key in object) {
+      // code
+    }
+
+  Example:
+    const car = {
+      make: "Toyota",
+      model: "Corolla",
+      year: 2020
+    };
+
+    for (let key in car) {
+      console.log(`${key}: ${car[key]}`);
+    }
+
+  // Expected Output --> 
+      make: Toyota
+      model: Corolla
+      year: 2020
+
+  5. While Loops: executes a block of code as long as a specified condition is true.
+
+  Syntax:
+    while(condition) {
+      // output
+    }
+
+  Example: 
+    let i = 0;
+
+    while(i <= 20) {
+      console.log('Number ' + i);
+      i++;
+    }
+
+    // Example Explanation: while 'i' is greater than or equal to 20,
+    it will add 1 to i until the condition is false (when it reaches 20). 
+    
+    Expected Output --> 'Number 0' 'Number 1' 'Number 2' 'Number 3' 'Number 4' 'Number 5' 
+    'Number 6' 'Number 7' 'Number 8' 'Number 9' 'Number 10' 'Number 11' 'Number 12' 'Number 13' 
+    'Number 14' 'Number 15' 'Number 16' 'Number 17' 'Number 18' 'Number 19' 'Number 20'
+
+  6. Do While Loops: The difference between this and a regular while loop is that this loop guarantees
+  that the block of code inside the loop will be executed at least once.
+
+    Syntax: 
+      do {
+        // output
+      } while (condition);
+
+    Example:
+      let i = 0;
+
+      do {
+        console.log('Number ' + i)
+        i++;
+      } while (i <= 10);
+
+    // Expected Output --> 'Number 0' 'Number 1' 'Number 2' 'Number 3' 'Number 4' 'Number 5' 
+    'Number 6' 'Number 7' 'Number 8' 'Number 9' 'Number 10'
+
+  7. For Each: built-in function that executes a provided function once for each array element.
+
+    Syntax: 
+      array.forEach(function(currentValue, index, arr), thisValue)
+
+    Example:
+      const array1 = ['a', 'b', 'c'];
+
+      array1.forEach((element) => console.log(element));
+
+    // Expected Output: 
+      a 
+      b 
+      c
 ------------ Loops ------------ END
+
+------------ Array Methods ------------- START
+
+Array.filter()
+  Example:
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    const evenNumbers = numbers.filter(function (number) {
+      return number % 2 === 0;
+    });
+    console.log(evenNumbers);
+
+  Expected Output --> 2, 4, 6, 8, 10
+
+  Explanation: The filter method will provide a portion of the array that meets the function's
+  condition. In this example, anything divisible by 2 will be displayed.
+
+Array.map()
+  Example:
+    const array1 = [1, 4, 9, 16];
+
+    // Pass a function to map
+    const map1 = array1.map((x) => x * 2);
+
+    console.log(map1);
+    
+  Expected output --> Array [2, 8, 18, 32]
+
+  Explanation: The map method will create a new array with the results of the function.
+  In this example, a new array was created with everything all of the values being multiplied by 2.
+
+Array.reduce()
+  Example: 
+    const array1 = [1, 2, 3, 4];
+
+    // 0 + 1 + 2 + 3 + 4
+    const initialValue = 0;
+    const sumWithInitial = array1.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      initialValue,
+    );
+
+    console.log(sumWithInitial);
+
+  Expected Output --> 10
+
+  Explanation: The reduce() method of Array instances 
+  executes a user-supplied "reducer" callback function on each element of the array.
+  In this example, the elements in the array add up together.
+      
+------------ Array Methods ------------- END
