@@ -169,6 +169,22 @@ setTimeout(function () {
   console.log('This is an anonymous function!');
 }, 1000);
 
+Here's a breakdown of what it does:
+
+setTimeout is a built-in JavaScript function that delays the execution of a callback function for a specified number of milliseconds.
+The anonymous function is passed as the first argument to setTimeout. This function doesn’t have a name, but it gets executed after 1000 milliseconds (1 second).
+The console.log inside the function will print the string "This is an anonymous function!" to the console after the delay.
+Full Example:
+
+setTimeout(function () {
+  console.log('This is an anonymous function!');
+}, 1000);
+
+console.log('This will appear first!');
+Output:
+Immediately: "This will appear first!"
+After 1 second: "This is an anonymous function!"
+This usage is very common in asynchronous programming for tasks like timeouts, intervals, and handling events.
 *************
 
 5. IIFE (Immediately Invoked Function Expression):
