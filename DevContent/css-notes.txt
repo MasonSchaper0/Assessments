@@ -326,6 +326,16 @@ syntax:
     grid: revert-layer;
     grid: unset;
 
+// clamp
+    syntax:
+    font-size: (min, val, max); // the min and max are
+
+    example: 
+        font-size: (1rem, 2.5vw, 2rem);
+
+    explanation: When the viewport is the smallest it can be, the font-size will have a minimum size-cap of 1rem, same thing with the biggest size but the opposite. 
+    The 'val' or the preferred value is the value you want in between the min and max.
+
 
 TRANSITIONS/TRANSFORMS/ANIMATIONS
 
