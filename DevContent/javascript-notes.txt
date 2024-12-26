@@ -1060,11 +1060,15 @@ By combining fetch with async/await, you can make the code even cleaner and easi
   if an error occurs in the try block.
 
   Syntax:
+    let x = 0;
+  
     try {
       console.log(x); // executes code for it to be tested for errors
     } catch (error) {
       console.log('Error: ' + error); // prints the error into the console
     }
+
+    expected output: 0
 
 ------------ Try/Catch ------------- END
 
